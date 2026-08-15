@@ -1,0 +1,62 @@
+table DimSalesTerritory
+	lineageTag: 5d143365-0b4b-4fc6-8b7c-948ae33c531d
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a4e8c92f-2f06-451d-adf5-1c3a3e584de5
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: de9bbb30-f469-4a6a-bae5-b2facdc19aa9
+		summarizeBy: count
+		sourceColumn: SalesTerritoryAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryRegion
+		dataType: string
+		lineageTag: 93bebeef-93e3-4b86-8ec0-09d6e5d183be
+		summarizeBy: none
+		sourceColumn: SalesTerritoryRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryCountry
+		dataType: string
+		lineageTag: 4663f972-0698-4c43-9424-047ce68986b9
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: SalesTerritoryCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryGroup
+		dataType: string
+		lineageTag: b2639bc1-ab4d-41cc-8aa4-03d8b893c5bf
+		summarizeBy: none
+		sourceColumn: SalesTerritoryGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSalesTerritory = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimSalesTerritory.csv"),[Delimiter=";", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"SalesTerritoryKey", Int64.Type}, {"SalesTerritoryAlternateKey", Int64.Type}, {"SalesTerritoryRegion", type text}, {"SalesTerritoryCountry", type text}, {"SalesTerritoryGroup", type text}, {"SalesTerritoryImage", type text}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"SalesTerritoryImage"})
+				in
+				  #"Colonnes supprimées"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

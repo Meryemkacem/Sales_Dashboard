@@ -1,0 +1,314 @@
+table DimCustomer
+	lineageTag: 6603c8ed-740a-4d7c-b358-206eb2d62735
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d3d19a79-86c0-4844-9551-230403865ac2
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c56f9561-ead3-44e5-8e6c-27ccaa4265bc
+		summarizeBy: count
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAlternateKey
+		dataType: string
+		lineageTag: 4e359b84-0e41-439c-addf-5a01c2112e06
+		summarizeBy: none
+		sourceColumn: CustomerAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: aa1c75ea-b39d-4dbb-9534-f31adc4a22ba
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: dc2f27c1-0752-45bf-823d-e4215295e33b
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: ba1f1d5f-700d-4d20-b9fe-6a2a4baf5857
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 05e5d86d-e69a-4408-b4e9-7191370dba13
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a1be0619-d8f2-429b-a15e-99a87d1e9ef2
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: 0890e994-d40a-4a56-b6ec-4806b6e80114
+			defaultHierarchy: LocalDateTable_f5649e1e-ee36-48b0-a4d2-667842fd10a2.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 4a98a189-b675-4d5b-9de0-03c85011e48b
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: d9e6ba44-1a47-4d9b-aede-9db91fd2e26b
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: 72e2dd18-c505-4219-9197-b538c923cf61
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: int64
+		formatString: 0
+		lineageTag: 73c2b20f-a300-4445-8b9f-598266c118a8
+		summarizeBy: sum
+		sourceColumn: YearlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		lineageTag: f641f27e-8bfa-42df-b447-99ffb2c92153
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		lineageTag: fce7cc3b-6d5e-4a7d-ba72-5bab65174d24
+		summarizeBy: sum
+		sourceColumn: NumberChildrenAtHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishEducation
+		dataType: string
+		lineageTag: cd42d7c0-0ed4-4d28-ab89-fccedb38da98
+		summarizeBy: none
+		sourceColumn: EnglishEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishOccupation
+		dataType: string
+		lineageTag: c217963b-c0ad-4cd8-b8cd-b1e8953c8781
+		summarizeBy: none
+		sourceColumn: EnglishOccupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HouseOwnerFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f50c80f-9627-4adb-8051-171586b09caf
+		summarizeBy: sum
+		sourceColumn: HouseOwnerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		lineageTag: bcc01dfd-4439-42ba-93fe-96f747964e10
+		summarizeBy: sum
+		sourceColumn: NumberCarsOwned
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: e75cb53d-c370-4929-a612-0213dc382da0
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: 40968bbd-944f-4507-8468-17652ad2fb68
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: bc795005-5641-4b0f-854a-7e0637aa77d5
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateFirstPurchase
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 17a86934-344f-4724-ab27-f21822a19729
+		summarizeBy: none
+		sourceColumn: DateFirstPurchase
+
+		variation Variation
+			isDefault
+			relationship: c25cfef2-6aba-4fe6-bb7b-2d398060b751
+			defaultHierarchy: LocalDateTable_a59999dd-564c-4593-bf64-5dc39d36b286.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CommuteDistance
+		dataType: string
+		lineageTag: b07bc226-3bf8-47fc-8d7e-40fc19ac8ce0
+		summarizeBy: none
+		sourceColumn: CommuteDistance
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ac3443f-5227-4cc8-a1b9-dd4fb5766526
+		summarizeBy: count
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e1344fc-aa66-414e-af66-77b53767d5c8
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"DimCustomer","TableItemName":"Age (groupes)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'Age (groupes)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('DimCustomer'[Age]),
+				"(Vide)",
+				'DimCustomer'[Age] IN {40,
+					41,
+					42,
+					43,
+					44,
+					45},
+				"40-45",
+				'DimCustomer'[Age] IN {46,
+					47,
+					48,
+					49,
+					50},
+				"46-50",
+				'DimCustomer'[Age] IN {51,
+					52,
+					53,
+					54,
+					55},
+				"51-55",
+				'DimCustomer'[Age] IN {56,
+					57,
+					58,
+					59,
+					60},
+				"56-60",
+				'DimCustomer'[Age] IN {61,
+					62,
+					63,
+					64,
+					65},
+				"61-65",
+				"65+"
+			)
+		lineageTag: a753b27c-8924-4c65-a0a0-e2cd631a63df
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "DimCustomer"
+				          }
+				        },
+				        "Property": "Age"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"DimCustomer"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"GroupItems":[{"DisplayName":"(Vide)","BlankDefaultPlaceholder":true},{"DisplayName":"40-45","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"Values":[[{"Literal":{"Value":"40L"}}],[{"Literal":{"Value":"41L"}}],[{"Literal":{"Value":"42L"}}],[{"Literal":{"Value":"43L"}}],[{"Literal":{"Value":"44L"}}],[{"Literal":{"Value":"45L"}}]]}}},{"DisplayName":"46-50","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"Values":[[{"Literal":{"Value":"46L"}}],[{"Literal":{"Value":"47L"}}],[{"Literal":{"Value":"48L"}}],[{"Literal":{"Value":"49L"}}],[{"Literal":{"Value":"50L"}}]]}}},{"DisplayName":"51-55","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"Values":[[{"Literal":{"Value":"51L"}}],[{"Literal":{"Value":"52L"}}],[{"Literal":{"Value":"53L"}}],[{"Literal":{"Value":"54L"}}],[{"Literal":{"Value":"55L"}}]]}}},{"DisplayName":"56-60","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"Values":[[{"Literal":{"Value":"56L"}}],[{"Literal":{"Value":"57L"}}],[{"Literal":{"Value":"58L"}}],[{"Literal":{"Value":"59L"}}],[{"Literal":{"Value":"60L"}}]]}}},{"DisplayName":"61-65","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Age"}}],"Values":[[{"Literal":{"Value":"61L"}}],[{"Literal":{"Value":"62L"}}],[{"Literal":{"Value":"63L"}}],[{"Literal":{"Value":"64L"}}],[{"Literal":{"Value":"65L"}}]]}}},{"DisplayName":"65+"}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimCustomer.csv"),[Delimiter=";", Columns=29, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"CustomerKey", Int64.Type}, {"GeographyKey", Int64.Type}, {"CustomerAlternateKey", type text}, {"Title", type text}, {"FirstName", type text}, {"MiddleName", type text}, {"LastName", type text}, {"NameStyle", Int64.Type}, {"BirthDate", type date}, {"MaritalStatus", type text}, {"Suffix", type text}, {"Gender", type text}, {"EmailAddress", type text}, {"YearlyIncome", Int64.Type}, {"TotalChildren", Int64.Type}, {"NumberChildrenAtHome", Int64.Type}, {"EnglishEducation", type text}, {"SpanishEducation", type text}, {"FrenchEducation", type text}, {"EnglishOccupation", type text}, {"SpanishOccupation", type text}, {"FrenchOccupation", type text}, {"HouseOwnerFlag", Int64.Type}, {"NumberCarsOwned", Int64.Type}, {"AddressLine1", type text}, {"AddressLine2", type text}, {"Phone", type text}, {"DateFirstPurchase", type date}, {"CommuteDistance", type text}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"NameStyle", "Suffix", "SpanishEducation", "FrenchEducation", "SpanishOccupation", "FrenchOccupation"}),
+				    #"Requêtes fusionnées" = Table.NestedJoin(#"Colonnes supprimées", {"GeographyKey"}, DimGeography, {"GeographyKey"}, "DimGeography", JoinKind.LeftOuter),
+				    #"DimGeography développé" = Table.ExpandTableColumn(#"Requêtes fusionnées", "DimGeography", {"SalesTerritoryKey"}, {"DimGeography.SalesTerritoryKey"}),
+				    #"Colonnes renommées" = Table.RenameColumns(#"DimGeography développé",{{"DimGeography.SalesTerritoryKey", "SalesTerritoryKey"}}),
+				    #"Personnalisée ajoutée" = Table.AddColumn(#"Colonnes renommées", "Personnalisé", each Date.Year(Date.From(DateTime.LocalNow())) - Date.Year([BirthDate])),
+				    #"Type modifié" = Table.TransformColumnTypes(#"Personnalisée ajoutée",{{"Personnalisé", Int64.Type}}),
+				    #"Colonnes renommées1" = Table.RenameColumns(#"Type modifié",{{"Personnalisé", "Age"}})
+				in
+				    #"Colonnes renommées1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

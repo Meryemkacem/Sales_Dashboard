@@ -1,0 +1,329 @@
+table FactInternetSales
+	isHidden
+	lineageTag: a8fb2f4e-a177-42e7-bb0b-27b959735645
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 00cc1439-57d0-45aa-8945-7f047595d65e
+		summarizeBy: count
+		sourceColumn: ProductKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 747642bc-19d7-4f97-b91a-9f82f7b357cc
+		summarizeBy: count
+		sourceColumn: OrderDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 18985f6f-8737-4a24-8d80-0717dae06c22
+		summarizeBy: count
+		sourceColumn: DueDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7dd6c19f-61ee-4260-941a-cc6a65442024
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9742fdb0-a9b8-4026-bd80-5b9bf956febb
+		summarizeBy: count
+		sourceColumn: CustomerKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e55347ee-7148-4a8d-b7e7-0a48756af7cb
+		summarizeBy: count
+		sourceColumn: PromotionKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 86cbf434-2ebd-46ee-ac81-a642fdaf45a4
+		summarizeBy: count
+		sourceColumn: CurrencyKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 287780d8-9f6c-44ba-b5b5-bc565f18b3c5
+		summarizeBy: count
+		sourceColumn: SalesTerritoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderNumber
+		dataType: string
+		isHidden
+		lineageTag: 4b39fa99-7b40-4308-9e68-9e1875a6571a
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d8a305b1-6a3e-480c-bd46-f5874013a07e
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevisionNumber
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0ffb542b-16c0-40ab-a570-c46f06465959
+		summarizeBy: sum
+		sourceColumn: RevisionNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantity
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e2e5f3d4-246d-4ec0-9a5f-680209aa3831
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		isHidden
+		lineageTag: 3d82ea79-e5ea-478c-a8b3-4e81a048d6ba
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExtendedAmount
+		dataType: double
+		isHidden
+		lineageTag: 8cea35ca-39de-4c6a-97ac-7127a0565b97
+		summarizeBy: sum
+		sourceColumn: ExtendedAmount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProductStandardCost
+		dataType: double
+		isHidden
+		lineageTag: ef5352f1-c03b-4847-9cb1-df8e0b6a822b
+		summarizeBy: sum
+		sourceColumn: ProductStandardCost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalProductCost
+		dataType: double
+		isHidden
+		lineageTag: 0fcc450f-d56d-4a5a-b1bb-bad561533702
+		summarizeBy: sum
+		sourceColumn: TotalProductCost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesAmount
+		dataType: decimal
+		isHidden
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 1f401e8e-c53f-4fdf-9f71-8f40a3850014
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	column TaxAmt
+		dataType: double
+		isHidden
+		lineageTag: fb5882cd-bd6e-4768-abc9-4ebb61485aa8
+		summarizeBy: sum
+		sourceColumn: TaxAmt
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Freight
+		dataType: double
+		isHidden
+		lineageTag: 29316f48-5ff4-4ee9-aa79-caa7691dad78
+		summarizeBy: sum
+		sourceColumn: Freight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OrderDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 610472b8-ca9d-48f6-8e4b-8bf97361af90
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		variation Variation
+			isDefault
+			relationship: 72d3a9e1-00f1-4f75-bb0a-ecee09f78ee4
+			defaultHierarchy: LocalDateTable_98f012af-599c-4c54-9581-198f38d85356.'Hiérarchie de dates'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DueDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 58d2c391-6cc8-4c2b-bca6-8cfa8dcb49b5
+		summarizeBy: none
+		sourceColumn: DueDate
+
+		variation Variation
+			isDefault
+			relationship: 71f6f22c-c62a-490d-98bc-76f905cd0515
+			defaultHierarchy: LocalDateTable_c3b9f745-efe7-4312-9cc1-b3e53a9e3302.'Hiérarchie de dates'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 78b5fb2f-465a-48ac-b3d5-292e0fcf7212
+		summarizeBy: none
+		sourceColumn: ShipDate
+
+		variation Variation
+			isDefault
+			relationship: e40d386a-1ab4-4707-b515-521a5b8d9f1d
+			defaultHierarchy: LocalDateTable_10be6b77-7c42-467c-a8d2-457485485cd8.'Hiérarchie de dates'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Channel
+		dataType: string
+		isHidden
+		lineageTag: a80dc74f-16a8-43ef-bb3d-d6565980d052
+		summarizeBy: none
+		sourceColumn: Channel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactInternetSales = m
+		mode: import
+		queryGroup: Fact_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\FactInternetSales.csv"),[Delimiter=",", Columns=26, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"ProductKey", Int64.Type}, {"OrderDateKey", Int64.Type}, {"DueDateKey", Int64.Type}, {"ShipDateKey", Int64.Type}, {"CustomerKey", Int64.Type}, {"PromotionKey", Int64.Type}, {"CurrencyKey", Int64.Type}, {"SalesTerritoryKey", Int64.Type}, {"SalesOrderNumber", type text}, {"SalesOrderLineNumber", Int64.Type}, {"RevisionNumber", Int64.Type}, {"OrderQuantity", Int64.Type}, {"UnitPrice", type number}, {"ExtendedAmount", type number}, {"UnitPriceDiscountPct", Int64.Type}, {"DiscountAmount", Int64.Type}, {"ProductStandardCost", type number}, {"TotalProductCost", type number}, {"SalesAmount", type number}, {"TaxAmt", type number}, {"Freight", type number}, {"CarrierTrackingNumber", type text}, {"CustomerPONumber", type text}, {"OrderDate", type datetime}, {"DueDate", type datetime}, {"ShipDate", type datetime}}, "fr"),
+				    #"Date extraite" = Table.TransformColumns(#"Type de colonne changé",{{"OrderDate", DateTime.Date, type date}, {"DueDate", DateTime.Date, type date}, {"ShipDate", DateTime.Date, type date}}),
+				    #"Type modifié" = Table.TransformColumnTypes(#"Date extraite",{{"SalesAmount", Currency.Type}}),
+				    #"Personnalisée ajoutée" = Table.AddColumn(#"Type modifié", "Channel", each "Internet"),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"Personnalisée ajoutée",{{"Channel", type text}}),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type modifié1",{"CustomerPONumber", "CarrierTrackingNumber", "UnitPriceDiscountPct", "DiscountAmount"})
+				in
+				  #"Colonnes supprimées"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

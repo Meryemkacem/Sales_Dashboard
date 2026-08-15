@@ -1,0 +1,83 @@
+table DimProductSubcategory
+	isHidden
+	lineageTag: d1a66922-3e23-42dd-9a88-b35f076bd69e
+
+	column ProductSubcategoryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4c26185a-9f0f-4264-94fd-b9f418a57dd2
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryAlternateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 965631a8-f3b0-45a0-80d1-da8588ddd412
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductSubcategoryName
+		dataType: string
+		isHidden
+		lineageTag: 5caac8eb-56bf-4410-b3f6-f2721bf4b549
+		summarizeBy: none
+		sourceColumn: EnglishProductSubcategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f3c2a05e-893f-4c4f-87fc-80dec24d17db
+		summarizeBy: count
+		sourceColumn: ProductCategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		isHidden
+		lineageTag: f16e7071-09b0-482e-bec3-97720ba6d8dd
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductSubcategory = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimProductSubcategory.csv"),[Delimiter=";", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"ProductSubcategoryKey", Int64.Type}, {"ProductSubcategoryAlternateKey", Int64.Type}, {"EnglishProductSubcategoryName", type text}, {"SpanishProductSubcategoryName", type text}, {"FrenchProductSubcategoryName", type text}, {"ProductCategoryKey", Int64.Type}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"SpanishProductSubcategoryName", "FrenchProductSubcategoryName"}),
+				    #"Requêtes fusionnées" = Table.NestedJoin(#"Colonnes supprimées", {"ProductCategoryKey"}, DimProductCategory, {"ProductCategoryKey"}, "DimProductCategory", JoinKind.LeftOuter),
+				    #"DimProductCategory développé" = Table.ExpandTableColumn(#"Requêtes fusionnées", "DimProductCategory", {"EnglishProductCategoryName"}, {"DimProductCategory.EnglishProductCategoryName"}),
+				    #"Colonnes renommées" = Table.RenameColumns(#"DimProductCategory développé",{{"DimProductCategory.EnglishProductCategoryName", "CategoryName"}})
+				in
+				  #"Colonnes renommées"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

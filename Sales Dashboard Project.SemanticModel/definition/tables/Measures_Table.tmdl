@@ -1,0 +1,193 @@
+table Measures_Table
+	lineageTag: 6803f339-5a5b-49fd-8f0f-8f4ffbfb0593
+
+	measure 'Internet Sales' = SUM(FactInternetSales[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0b8e1070-d4a8-408a-8f2c-2643f1a046b4
+
+	measure 'Reseller Sales' = SUM(FactResellerSales[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fccf42be-f13d-4a77-9ddd-80a776347f4c
+
+	measure 'Total Sales' = SUM(FactSales[SalesAmount])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7ba33503-627a-45c7-8543-061caed9bb5d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales YTD' = TOTALYTD([Total Sales],DimDate[Date])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 538ba2c9-babc-4b62-89ca-eda3838173a3
+
+	measure 'Sales PY' = CALCULATE([Sales YTD],SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
+		lineageTag: 1a8a1c4d-5128-4f51-9d0a-2ed65ac5c8ec
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Sales YoY %' =
+			
+			DIVIDE(
+			    [Sales YTD] - [Sales PY],
+			    [Sales PY]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 2d63319c-47a9-43fc-963c-13c4609d7338
+
+	measure Cost = SUM(FactSales[TotalProductCost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 57299801-4007-43c6-82db-cdf67d767608
+
+	measure 'Gross Profit' = [Total Sales]-[Cost]
+		lineageTag: 6d2a63f3-5db8-4079-b017-840e9a95ae3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '# Active Customers' = DISTINCTCOUNT(FactSales[CustomerKey])
+		formatString: 0
+		lineageTag: 942c8a9a-91b5-45d2-9cce-1ed140962a9a
+
+	measure '# Customers' = DISTINCTCOUNT(DimCustomer[CustomerKey])
+		formatString: 0
+		lineageTag: 1c3f6ee5-1a06-4462-a4db-b55eae751a74
+
+	measure 'Total Orders' = DISTINCTCOUNT(FactSales[SalesOrderNumber])
+		formatString: 0
+		lineageTag: 038d13fb-2642-4afc-bc84-86cd699b7e41
+
+	measure 'Average Order Value' =
+			
+			// Average revenue generated per sales order
+			DIVIDE(
+			    [Total Sales],
+			    [Total Orders]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d733c17d-8bee-4470-b478-f12cc0c0258c
+
+	measure 'Gross Margin %' =
+			
+			DIVIDE(
+			    [Gross Profit],
+			    [Total Sales]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: b46afd20-086b-4640-9acc-3f9277469a91
+
+	measure 'GM YoY txt' =
+			
+			VAR YoY = [Margin YOY %]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(YoY), BLANK(),
+			    YoY > 0, "▲ " & FORMAT(YoY, "+0.0%;+0.0%"),
+			    YoY < 0, "▼ " & FORMAT(YoY, "-0.0%;-0.0%"),
+			    "▬ 0.0%"
+			)
+		lineageTag: 98a2e8f7-8c9c-4b0e-9c62-c5ad44fcc267
+
+	measure 'Target Marge max' = 0.4
+		formatString: 0.00
+		lineageTag: dd60d129-006c-4a68-945d-36e5c4e7ff7d
+
+	measure 'Target Marge min' = 0.1
+		formatString: 0.00
+		lineageTag: d15568b9-f02b-4a06-b7d7-7051474a19fc
+
+	measure 'Sales YoY txt' =
+			
+			VAR YoY = [Sales YoY %]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(YoY), BLANK(),
+			    YoY > 0, "▲ " & FORMAT(YoY, "+0.0%;+0.0%"),
+			    YoY < 0, "▼ " & FORMAT(YoY, "-0.0%;-0.0%"),
+			    "▬ 0.0%"
+			)
+		lineageTag: 2d6b3bd5-06e5-4ab9-b669-4bb414ea0138
+
+	measure 'Margin YOY %' =
+			
+			DIVIDE(
+			    [GM YTD] - [GM PY],
+			    [GM PY]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 3cf7740d-bc0b-4e16-8c14-f19a2a1e6419
+
+	measure 'GM YTD' = TOTALYTD([Gross Margin %],DimDate[Date])
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: fe42b90b-11b4-409d-9d9c-edc497c09550
+
+	measure 'Total Orders YTD' = TOTALYTD([Total Orders],DimDate[Date])
+		formatString: 0
+		lineageTag: 40fb2587-b807-4701-a7ce-0689b975804c
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'GM PY' = CALCULATE([GM YTD],SAMEPERIODLASTYEAR(DimDate[Date]))
+		lineageTag: 5b10aecb-f210-44c8-8b2f-23799fcdd001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total orders PY' = CALCULATE([Total Orders YTD],SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: 0
+		lineageTag: 286b4128-4ecf-402c-bb35-58c2eda20d15
+
+	measure 'Orders YOY %' =
+			
+			DIVIDE(
+			    [Total Orders YTD] - [Total orders PY],
+			    [Total orders PY]
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 4799d69b-28c7-4064-b6b9-4c5316e755a1
+
+	measure 'Orders YOY txt' =
+			
+			VAR YoY = [Orders YOY %]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(YoY), BLANK(),
+			    YoY > 0, "▲ " & FORMAT(YoY, "+0.0%;+0.0%"),
+			    YoY < 0, "▼ " & FORMAT(YoY, "-0.0%;-0.0%"),
+			    "▬ 0.0%"
+			)
+		lineageTag: 57d98130-2d6a-4170-bf57-32eba2d4069c
+
+	measure '% Sales Channel' =
+			
+			"(" &
+			FORMAT(
+			    DIVIDE(
+			        [Total Sales],
+			        CALCULATE(
+			            [Total Sales],
+			            ALL(DimChannel)
+			        )
+			    ),
+			    "0.00%"
+			) &
+			")"
+		lineageTag: 94dbe371-0e4e-4c5b-b134-decfc2c851e5
+
+	column Column
+		formatString: 0
+		lineageTag: b059997a-e9db-4e5d-83d2-1eaa74e72ae9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures_Table = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c45c496f195743b6b3f92ee1217989f1
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

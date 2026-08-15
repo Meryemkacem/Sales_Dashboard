@@ -1,0 +1,52 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Dimension_Tables
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Fact_Tables
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["FactResellerSales","FactInternetSales","DimCustomer","DimDate","DimSalesTerritory","DimGeography","DimProduct","DimProductCategory","DimProductSubcategory","FactSales"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FactResellerSales
+ref table DateTableTemplate_a8009a89-dd01-42dd-aab8-bd507b758fe6
+ref table LocalDateTable_9c58d187-910b-409b-836b-f429018618a7
+ref table LocalDateTable_599412a8-8300-481a-8a18-660f351f844a
+ref table FactInternetSales
+ref table LocalDateTable_c3b9f745-efe7-4312-9cc1-b3e53a9e3302
+ref table LocalDateTable_10be6b77-7c42-467c-a8d2-457485485cd8
+ref table DimCustomer
+ref table LocalDateTable_f5649e1e-ee36-48b0-a4d2-667842fd10a2
+ref table LocalDateTable_a59999dd-564c-4593-bf64-5dc39d36b286
+ref table DimDate
+ref table LocalDateTable_33f4702c-e621-4c2f-b69b-12dafc577a19
+ref table DimSalesTerritory
+ref table DimGeography
+ref table DimProduct
+ref table LocalDateTable_badd8230-0b11-4717-a572-fc5459f91642
+ref table DimProductCategory
+ref table DimProductSubcategory
+ref table DimChannel
+ref table Measures_Table
+ref table LocalDateTable_98f012af-599c-4c54-9581-198f38d85356
+ref table LocalDateTable_a65b1e7c-cc4b-4fd6-b91e-291ed8475af8
+ref table FactSales
+ref table LocalDateTable_556fbc2f-67cf-4326-8a3e-e4726643ea66
+ref table LocalDateTable_6aeebcfa-c02f-47e1-b87f-401c770056ce
+
+ref cultureInfo fr-FR
+

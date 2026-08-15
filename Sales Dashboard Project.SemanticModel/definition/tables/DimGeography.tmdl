@@ -1,0 +1,87 @@
+table DimGeography
+	lineageTag: 3406c16d-dfd3-4af2-8ad1-ad48c2872a7e
+
+	column GeographyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dcae7d4-68b9-4f06-a1d0-9948f1a6b376
+		summarizeBy: count
+		sourceColumn: GeographyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 4644ccaa-bf14-4ba1-b84c-65ecd3fd1489
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceCode
+		dataType: string
+		lineageTag: b19b5084-813f-4827-b087-21cbd82947d2
+		summarizeBy: none
+		sourceColumn: StateProvinceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 53ead3c4-51ab-4f05-9238-ef616f6bd15b
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 64977325-4229-4bc9-8b6e-355cb1ea4504
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryName
+		dataType: string
+		lineageTag: 1ea7922e-7e4c-4b5c-97c4-e9108eabe478
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 8abd5885-a8dd-45f4-b77a-cfbaca6482d0
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 92105033-f853-4949-a6f0-437d8ee4ebc0
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGeography = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimGeography.csv"),[Delimiter=";", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"GeographyKey", Int64.Type}, {"City", type text}, {"StateProvinceCode", type text}, {"StateProvinceName", type text}, {"CountryRegionCode", type text}, {"EnglishCountryRegionName", type text}, {"SpanishCountryRegionName", type text}, {"FrenchCountryRegionName", type text}, {"PostalCode", type text}, {"SalesTerritoryKey", Int64.Type}, {"IpAddressLocator", type text}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"IpAddressLocator", "SpanishCountryRegionName", "FrenchCountryRegionName"}),
+				    #"Colonnes renommées" = Table.RenameColumns(#"Colonnes supprimées",{{"EnglishCountryRegionName", "CountryName"}})
+				in
+				  #"Colonnes renommées"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

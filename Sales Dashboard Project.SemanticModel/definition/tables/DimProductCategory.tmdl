@@ -1,0 +1,57 @@
+table DimProductCategory
+	isHidden
+	lineageTag: 6df76849-7b7d-43d6-9ad6-dfe19590b1a9
+
+	column ProductCategoryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 97776cb8-26ac-4c7e-a1e5-706bea919dd2
+		summarizeBy: count
+		sourceColumn: ProductCategoryKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryAlternateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e52b49ea-54db-40a6-8c5f-03797700ee57
+		summarizeBy: count
+		sourceColumn: ProductCategoryAlternateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnglishProductCategoryName
+		dataType: string
+		isHidden
+		lineageTag: ba7e924c-ed7b-4e79-b690-f098bae1c2f5
+		summarizeBy: none
+		sourceColumn: EnglishProductCategoryName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProductCategory = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimProductCategory.csv"),[Delimiter=";", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"ProductCategoryKey", Int64.Type}, {"ProductCategoryAlternateKey", Int64.Type}, {"EnglishProductCategoryName", type text}, {"SpanishProductCategoryName", type text}, {"FrenchProductCategoryName", type text}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"SpanishProductCategoryName", "FrenchProductCategoryName"})
+				in
+				  #"Colonnes supprimées"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

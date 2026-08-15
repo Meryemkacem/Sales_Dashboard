@@ -1,0 +1,25 @@
+table DimChannel
+	lineageTag: 67743310-0457-406a-ba51-0dc7b69ddd99
+
+	column Channel
+		lineageTag: ba5be1fd-cbc6-4dbe-aac9-7795f8a8619f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Channel]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimChannel = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Channel", STRING,
+				    {
+				        {"Internet"},
+				        {"Reseller"}
+				    }
+				)
+
+	annotation PBI_Id = da0cd0a661a24fbcb9bbfe4a62b5d897
+

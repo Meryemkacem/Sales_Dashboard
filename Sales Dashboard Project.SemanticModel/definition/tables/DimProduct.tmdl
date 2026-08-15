@@ -1,0 +1,235 @@
+table DimProduct
+	lineageTag: 3772e9c3-9d7f-41cc-8403-9c429db41ab7
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cc4a1048-36c2-415e-806d-11a5555cb83c
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductAlternateKey
+		dataType: string
+		lineageTag: b4c9ea8f-569c-43de-9527-1c988131a4e4
+		summarizeBy: none
+		sourceColumn: ProductAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryKey
+		dataType: double
+		lineageTag: f640b49e-5c9e-413a-a412-10afd40bae40
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Product
+		dataType: string
+		lineageTag: b39228d8-14da-481f-b4fc-5319f6a253c4
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinishedGoodsFlag
+		dataType: int64
+		formatString: 0
+		lineageTag: a3ce9b16-7a17-490c-9254-c16a977bff1b
+		summarizeBy: sum
+		sourceColumn: FinishedGoodsFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 9e2768aa-9741-4e11-9b9f-e15d0edc9074
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column SafetyStockLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ffa94d5-1c46-4df7-ad73-09dc1fdbd2cf
+		summarizeBy: sum
+		sourceColumn: SafetyStockLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReorderPoint
+		dataType: int64
+		formatString: 0
+		lineageTag: 3df84c62-ffc9-4f6b-a3de-62523e66111e
+		summarizeBy: sum
+		sourceColumn: ReorderPoint
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: string
+		lineageTag: baa4369a-2f9e-41f8-a574-cba9c45b837e
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		lineageTag: bf7af4ad-e791-4dbb-bc99-7da3cd668395
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column SizeRange
+		dataType: string
+		lineageTag: a8f4957d-37a4-42f5-b8d0-1e5112efa651
+		summarizeBy: none
+		sourceColumn: SizeRange
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: string
+		lineageTag: 0e996e32-e1d8-4d21-8cfc-25ba7e1dbd3e
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysToManufacture
+		dataType: int64
+		formatString: 0
+		lineageTag: 93a48185-b604-48cd-97e2-4b53b4b2dabc
+		summarizeBy: sum
+		sourceColumn: DaysToManufacture
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductLine
+		dataType: string
+		lineageTag: 696c58ee-48b2-4827-8bbc-9451a3143a04
+		summarizeBy: none
+		sourceColumn: ProductLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column DealerPrice
+		dataType: string
+		lineageTag: ba25dde6-2efb-40e7-8cff-887e19f589a4
+		summarizeBy: none
+		sourceColumn: DealerPrice
+
+		annotation SummarizationSetBy = Automatic
+
+	column Class
+		dataType: string
+		lineageTag: c28176c6-5b6e-476b-aecd-0eba2b5f8697
+		summarizeBy: none
+		sourceColumn: Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Style
+		dataType: string
+		lineageTag: a67030d7-167f-43a4-a750-caf0a2850a7d
+		summarizeBy: none
+		sourceColumn: Style
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelName
+		dataType: string
+		lineageTag: ccf7aebe-674c-47e6-a714-43ee6ef25b48
+		summarizeBy: none
+		sourceColumn: ModelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ac713018-ce6b-43f3-8545-aee021e59239
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: e8e1e1d8-7d03-40e7-b5c2-acc9fc20c2d3
+			defaultHierarchy: LocalDateTable_badd8230-0b11-4717-a572-fc5459f91642.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: string
+		lineageTag: 93020f10-9e05-4577-a39d-52c298ca038d
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: aa595128-ef65-4b87-9352-764940cddbd8
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 0f1884e9-ad38-4a73-abd3-30d0a3b925e7
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: ee5add1e-79d4-4fd0-8876-fd6cd143c35b
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy ProductCategory
+		lineageTag: 40c3cb44-6bdf-459e-9736-675505225e74
+
+		level Category
+			lineageTag: 36767809-f138-42d7-bedc-56314a8d6447
+			column: Category
+
+		level Subcategory
+			lineageTag: 6fd3f2aa-c775-4f2d-acbd-37f26267ea19
+			column: Subcategory
+
+		level Product
+			lineageTag: 132aa7dd-6f9c-42fd-a541-d1df6357fe65
+			column: Product
+
+	partition DimProduct = m
+		mode: import
+		queryGroup: Dimension_Tables
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\merye\Desktop\REEVO\Dataset\DimProduct.csv"),[Delimiter=";", Columns=36, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"ProductKey", Int64.Type}, {"ProductAlternateKey", type text}, {"ProductSubcategoryKey", type text}, {"WeightUnitMeasureCode", type text}, {"SizeUnitMeasureCode", type text}, {"EnglishProductName", type text}, {"SpanishProductName", type text}, {"FrenchProductName", type text}, {"StandardCost", type text}, {"FinishedGoodsFlag", Int64.Type}, {"Color", type text}, {"SafetyStockLevel", Int64.Type}, {"ReorderPoint", Int64.Type}, {"ListPrice", type text}, {"Size", type text}, {"SizeRange", type text}, {"Weight", type text}, {"DaysToManufacture", Int64.Type}, {"ProductLine", type text}, {"DealerPrice", type text}, {"Class", type text}, {"Style", type text}, {"ModelName", type text}, {"LargePhoto", type text}, {"EnglishDescription", type text}, {"FrenchDescription", type text}, {"ChineseDescription", type text}, {"ArabicDescription", type text}, {"HebrewDescription", type text}, {"ThaiDescription", type text}, {"GermanDescription", type text}, {"JapaneseDescription", type text}, {"TurkishDescription", type text}, {"StartDate", type datetime}, {"EndDate", type text}, {"Status", type text}}, "fr"),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type de colonne changé",{"FrenchDescription", "ChineseDescription", "ArabicDescription", "HebrewDescription", "ThaiDescription", "GermanDescription", "JapaneseDescription", "TurkishDescription", "LargePhoto", "WeightUnitMeasureCode", "SizeUnitMeasureCode", "SpanishProductName", "FrenchProductName", "StandardCost", "EnglishDescription"}),
+				    #"Type modifié" = Table.TransformColumnTypes(#"Colonnes supprimées",{{"ProductSubcategoryKey", type number}}),
+				    #"Requêtes fusionnées" = Table.NestedJoin(#"Type modifié", {"ProductSubcategoryKey"}, DimProductSubcategory, {"ProductSubcategoryKey"}, "DimProductSubcategory", JoinKind.LeftOuter),
+				    #"DimProductSubcategory développé" = Table.ExpandTableColumn(#"Requêtes fusionnées", "DimProductSubcategory", {"EnglishProductSubcategoryName", "CategoryName"}, {"DimProductSubcategory.EnglishProductSubcategoryName", "DimProductSubcategory.CategoryName"}),
+				    #"Colonnes renommées" = Table.RenameColumns(#"DimProductSubcategory développé",{{"DimProductSubcategory.EnglishProductSubcategoryName", "Subcategory"}, {"DimProductSubcategory.CategoryName", "Category"}, {"EnglishProductName", "Product"}})
+				in
+				    #"Colonnes renommées"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
