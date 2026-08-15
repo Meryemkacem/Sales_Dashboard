@@ -53,7 +53,7 @@ This dashboard answers those questions in one place, replacing static spreadshee
 
 | Executive Overview | Product Analysis |
 |:---:|:---:|
-| ![Overview](screenshots/overview.png) | ![Product](screenshots/product.png) |
+| ![Summary](Screenshots/Executive Summary.png) | ![Product](screenshots/product.png) |
 
 | Customer & Geography | Detail / Drill-through |
 |:---:|:---:|
