@@ -26,6 +26,8 @@
 
 ---
 
+![Sales Dashboard Demo](Screenshots\dashboard.gif)
+
 ## 📌 Overview
 
 This project is an interactive **Sales Dashboard** developed in **Microsoft Power BI**, designed to give sales leaders and analysts a single, self-service view of company performance. It consolidates **internet (direct-to-consumer)** and **reseller (B2B)** sales channels into one unified reporting model and lets users slice results by product hierarchy, customer, sales territory, and time.
